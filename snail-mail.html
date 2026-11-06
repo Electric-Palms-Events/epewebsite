@@ -71,6 +71,11 @@ section.band:not(.tint) + section.band.tint { padding-top: clamp(48px, 7vw, 88px
 .hero-copy { display: grid; gap: 20px; min-width: 0; }
 .hero-art { justify-self: center; width: min(100%, 360px); }
 .hero-logo { grid-column: 1 / -1; justify-self: center; width: clamp(180px, 22vw, 260px); height: auto; }
+/* Heroes without art (Home, About, Events & Services, Snail mail) use the full width; the headline grows to fill it,
+   while paragraphs keep a comfortable reading width */
+.hero-full { grid-column: 1 / -1; }
+.hero-full h1 { font-size: clamp(1.9rem, 5.4vw, 4.6rem); }
+.hero-full > p { max-width: 68ch; }
 .hero .cta-row .btn { padding: 13px 18px; }
 .hero-art img { filter: drop-shadow(0 12px 24px rgba(43,33,96,.15)); }
 @media (max-width: 760px) { .hero .wrap { grid-template-columns: 1fr; } .hero-art { width: min(60%, 260px); } }
@@ -269,24 +274,29 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
 .sp-next .card .btn { justify-self: start; margin-top: 6px; }
 @media (max-width: 760px) { .sp-hero .wrap { grid-template-columns: minmax(0, 1fr); } }
 
-/* Snail mail envelope mock-up: zine, sunset photo, patch, activity sticker */
-.mock2 { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 420px; justify-self: center; container-type: inline-size; }
+/* Snail mail mock-up: mini zine, 4x6 sunset photo, three round 2-inch stickers.
+   Drawn to scale: 1 inch = 9.5% of the mock-up's width (photo 6 in, zine 2.75 x 4.25 in, stickers 2 in). */
+.mock2 { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 440px; justify-self: center; container-type: inline-size; }
 .mock2 > * { position: absolute; }
-.m-env-back { left: 4%; right: 4%; bottom: 14%; height: 44%; background: #C9A27A; border-radius: 3cqi; }
-.m-env-front { left: 4%; right: 4%; bottom: 14%; height: 30%; background: #D9B48C; border-radius: 0 0 3cqi 3cqi; clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%); z-index: 6; box-shadow: 0 2cqi 5cqi rgba(43,33,96,.2); }
-.m-zine { left: 10%; bottom: 32%; width: 34%; aspect-ratio: 2.75 / 4.25; background: #7DCECC; border-radius: 1cqi; transform: rotate(-8deg); z-index: 3; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2cqi; padding: 3cqi; text-align: center; color: var(--ink); }
-.m-zine img { width: 50%; height: auto; }
-.m-zine b { font: 400 3.4cqi/1.15 var(--display); }
-.m-zine span { font: 700 2.8cqi/1 var(--body); border-bottom: .8cqi solid var(--yellow); padding-bottom: .6cqi; }
-.m-photo { right: 8%; bottom: 38%; width: 52%; aspect-ratio: 3 / 2; background: #fff; padding: 1.6cqi; transform: rotate(6deg); z-index: 2; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
+.m-env-back { left: 5%; right: 5%; top: 34%; height: 40%; background: #C9A27A; border-radius: 3cqi; }
+.m-env-front { left: 5%; right: 5%; top: 46%; height: 28%; background: #D9B48C; border-radius: 0 0 3cqi 3cqi; clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%); z-index: 6; box-shadow: 0 2cqi 5cqi rgba(43,33,96,.2); }
+.m-zine { left: 9%; top: 13%; width: 26.1%; aspect-ratio: 2.75 / 4.25; background: #7DCECC; border-radius: 1cqi; transform: rotate(-7deg); z-index: 3; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1.6cqi; padding: 3cqi 2cqi; text-align: center; color: var(--ink); }
+.m-zine img { width: 56%; height: auto; }
+.m-zine b { font: 400 2.9cqi/1.15 var(--display); }
+.m-zine span { font: 700 2.4cqi/1 var(--body); border-bottom: .7cqi solid var(--yellow); padding-bottom: .5cqi; }
+.m-photo { right: 6%; top: 16%; width: 57%; aspect-ratio: 3 / 2; background: #fff; padding: 1.4cqi; transform: rotate(5deg); z-index: 2; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
 .m-photo svg { width: 100%; height: 100%; display: block; }
-.m-patch { left: 14%; bottom: 9%; width: 34%; aspect-ratio: 1; border-radius: 50%; background: #FAED23; border: 2.4cqi solid var(--purple); outline: .7cqi dashed rgba(255,255,255,.85); outline-offset: -3.6cqi; padding: 3cqi; transform: rotate(-6deg); z-index: 8; box-shadow: 0 2cqi 4cqi rgba(43,33,96,.3), inset 0 0 0 1cqi #F2E21C; }
-.m-patch img { width: 100%; height: 100%; object-fit: contain; }
-.m-sticker { right: 14%; bottom: 12%; width: 20%; aspect-ratio: 1; border-radius: 50%; background: #fff; padding: 1.6cqi; transform: rotate(12deg); z-index: 8; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
-.m-sticker img { width: 100%; height: 100%; }
+.m-stk { top: 67%; width: 19%; aspect-ratio: 1; border-radius: 50%; border: 1.3cqi solid #fff; overflow: hidden; z-index: 8; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.28); }
+.m-stk img { display: block; width: 100%; height: 100%; }
+.s-croc { left: 12%; background: #FBF3A0; transform: rotate(-8deg); }
+.s-croc img { object-fit: contain; padding: 9%; }
+.s-logo { left: 40.5%; background: #fff; transform: rotate(4deg); }
+.s-logo img { object-fit: contain; padding: 7%; }
+.s-trees { left: 69%; background: #A8DCD9; transform: rotate(10deg); }
+.s-trees img { object-fit: cover; object-position: 50% 42%; }
 .m-label { z-index: 9; font: 700 max(12px, 3cqi)/1 var(--body); background: #fff; color: var(--ink); border: 1px solid var(--line); padding: 1.2cqi 2.2cqi; border-radius: 99px; white-space: nowrap; }
-.l-zine { left: 2%; top: 14%; } .l-photo { right: 4%; top: 12%; } .l-patch { left: 6%; bottom: 1%; } .l-sticker { right: 4%; bottom: 3%; }
-.m-tag { left: 50%; top: 2%; transform: translateX(-50%); z-index: 9; font: 700 2.8cqi/1 var(--body); letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 1.6cqi 2.6cqi; border-radius: 99px; }
+.l-zine { left: 2%; top: 8%; } .l-photo { right: 3%; top: 10%; } .l-stk { left: 50%; bottom: 2%; transform: translateX(-50%); }
+.m-tag { left: 50%; top: 0; transform: translateX(-50%); z-index: 9; font: 700 2.8cqi/1 var(--body); letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 1.6cqi 2.6cqi; border-radius: 99px; }
 .thanks-page { text-align: center; justify-items: center; }
 .thanks-page .cta-row { justify-content: center; }
 
@@ -306,7 +316,7 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
 
 <section class="hero band mail-hero">
   <div class="wrap">
-    <div class="hero-copy">
+    <div class="hero-copy hero-full">
       <span class="stamp">Coming soon</span>
       <h1>Sign up for snail mail!</h1>
       <p class="lead">Electric Palms isn't on social media, on purpose. We want to pull you off your phone and into the moment. This monthly snail mail subscription sends a letter to your mailbox, featuring the latest edition of the mini-zine <i>Electric Palms Monthly</i>.</p>
@@ -319,17 +329,17 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
   <div class="wrap">
     <div class="head"><h2>$15 a month</h2></div>
     <div class="inside">
-      <div class="mock2" role="img" aria-label="Mock-up of an opened snail mail envelope: the Electric Palms Monthly zine with a mint cover, a 4x6 photo of a Sarasota sunset with palm trees, an embroidered alligator patch, and a round activity sticker">
+      <div class="mock2" role="img" aria-label="Mock-up of a snail mail letter, drawn to scale: the Electric Palms Monthly mini zine, a 4x6 photo of a Sarasota sunset with palm trees, and three round 2-inch stickers: the alligator, the Electric Palms logo, and the alligator dancing between palm trees">
           <div class="m-env-back" aria-hidden="true"></div>
           <div class="m-zine" aria-hidden="true"><img src="img/logo-simple.webp" alt="" width="300" height="300"><b>Electric Palms Monthly</b><span>No. 01</span></div>
           <div class="m-photo" aria-hidden="true"><svg viewBox="0 0 150 100" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#56479D"/><stop offset=".45" stop-color="#F27AAA"/><stop offset=".8" stop-color="#FDB36B"/><stop offset="1" stop-color="#FAED23"/></linearGradient><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F07BB0"/><stop offset="1" stop-color="#3B2F7A"/></linearGradient></defs><rect width="150" height="64" fill="url(#sky)"/><circle cx="96" cy="62" r="14" fill="#FAED23"/><rect y="62" width="150" height="38" fill="url(#sea)"/><g fill="#FAED23" opacity=".7"><rect x="84" y="67" width="24" height="1.6" rx=".8"/><rect x="88" y="72" width="16" height="1.4" rx=".7"/><rect x="91" y="77" width="10" height="1.2" rx=".6"/></g><g fill="#1E1646"><path d="M22 100 C24 80 26 66 30 50 L32 50 C29 66 28 82 28 100Z"/><path d="M31 50 c-10 -6 -20 -4 -26 2 c8 -2 16 -2 26 -1z M31 50 c-6 -8 -16 -10 -22 -8 c8 2 15 4 22 9z M31 50 c4 -9 12 -13 22 -12 c-8 2 -15 6 -21 13z M31 50 c10 -4 20 -1 26 6 c-9 -3 -17 -4 -26 -5z M31 50 c0 -9 4 -15 9 -18 c-3 5 -6 11 -8 18z"/><path d="M128 100 C127 86 125 76 121 64 L123 63.5 C126 76 129 86 131 100Z"/><path d="M122 64 c-8 -4 -15 -2 -19 2 c6 -1 12 -1 19 -1z M122 64 c-3 -7 -10 -9 -15 -7 c6 2 11 4 15 8z M122 64 c4 -7 10 -9 17 -8 c-6 1 -12 4 -16 9z M122 64 c8 -2 15 1 18 6 c-6 -2 -12 -4 -18 -5z"/><rect y="94" width="150" height="6"/></g></svg></div>
           <div class="m-env-front" aria-hidden="true"></div>
-          <div class="m-patch" aria-hidden="true"><img src="img/croc.webp" alt="" width="800" height="800"></div>
-          <div class="m-sticker" aria-hidden="true"><img src="img/logo-simple.webp" alt="" width="300" height="300"></div>
-          <span class="m-label l-zine" aria-hidden="true">Zine</span>
-          <span class="m-label l-photo" aria-hidden="true">Sunset photo</span>
-          <span class="m-label l-patch" aria-hidden="true">Bonus: alligator patch</span>
-          <span class="m-label l-sticker" aria-hidden="true">Activity sticker</span>
+          <div class="m-stk s-croc" aria-hidden="true"><img src="img/croc.webp" alt="" width="800" height="800"></div>
+          <div class="m-stk s-logo" aria-hidden="true"><img src="img/logo-trim.webp" alt="" width="813" height="749"></div>
+          <div class="m-stk s-trees" aria-hidden="true"><img src="img/art-v2-soft.webp" alt="" width="900" height="1200"></div>
+          <span class="m-label l-zine" aria-hidden="true">Mini zine</span>
+          <span class="m-label l-photo" aria-hidden="true">4x6 sunset photo</span>
+          <span class="m-label l-stk" aria-hidden="true">Three 2-inch stickers</span>
           <span class="m-tag" aria-hidden="true">Mock-up</span>
         </div>
     <ul class="envelope">

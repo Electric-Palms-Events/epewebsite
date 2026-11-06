@@ -71,6 +71,11 @@ section.band:not(.tint) + section.band.tint { padding-top: clamp(48px, 7vw, 88px
 .hero-copy { display: grid; gap: 20px; min-width: 0; }
 .hero-art { justify-self: center; width: min(100%, 360px); }
 .hero-logo { grid-column: 1 / -1; justify-self: center; width: clamp(180px, 22vw, 260px); height: auto; }
+/* Heroes without art (Home, About, Events & Services, Snail mail) use the full width; the headline grows to fill it,
+   while paragraphs keep a comfortable reading width */
+.hero-full { grid-column: 1 / -1; }
+.hero-full h1 { font-size: clamp(1.9rem, 5.4vw, 4.6rem); }
+.hero-full > p { max-width: 68ch; }
 .hero .cta-row .btn { padding: 13px 18px; }
 .hero-art img { filter: drop-shadow(0 12px 24px rgba(43,33,96,.15)); }
 @media (max-width: 760px) { .hero .wrap { grid-template-columns: 1fr; } .hero-art { width: min(60%, 260px); } }
@@ -269,24 +274,29 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
 .sp-next .card .btn { justify-self: start; margin-top: 6px; }
 @media (max-width: 760px) { .sp-hero .wrap { grid-template-columns: minmax(0, 1fr); } }
 
-/* Snail mail envelope mock-up: zine, sunset photo, patch, activity sticker */
-.mock2 { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 420px; justify-self: center; container-type: inline-size; }
+/* Snail mail mock-up: mini zine, 4x6 sunset photo, three round 2-inch stickers.
+   Drawn to scale: 1 inch = 9.5% of the mock-up's width (photo 6 in, zine 2.75 x 4.25 in, stickers 2 in). */
+.mock2 { position: relative; aspect-ratio: 1 / 1; width: 100%; max-width: 440px; justify-self: center; container-type: inline-size; }
 .mock2 > * { position: absolute; }
-.m-env-back { left: 4%; right: 4%; bottom: 14%; height: 44%; background: #C9A27A; border-radius: 3cqi; }
-.m-env-front { left: 4%; right: 4%; bottom: 14%; height: 30%; background: #D9B48C; border-radius: 0 0 3cqi 3cqi; clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%); z-index: 6; box-shadow: 0 2cqi 5cqi rgba(43,33,96,.2); }
-.m-zine { left: 10%; bottom: 32%; width: 34%; aspect-ratio: 2.75 / 4.25; background: #7DCECC; border-radius: 1cqi; transform: rotate(-8deg); z-index: 3; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2cqi; padding: 3cqi; text-align: center; color: var(--ink); }
-.m-zine img { width: 50%; height: auto; }
-.m-zine b { font: 400 3.4cqi/1.15 var(--display); }
-.m-zine span { font: 700 2.8cqi/1 var(--body); border-bottom: .8cqi solid var(--yellow); padding-bottom: .6cqi; }
-.m-photo { right: 8%; bottom: 38%; width: 52%; aspect-ratio: 3 / 2; background: #fff; padding: 1.6cqi; transform: rotate(6deg); z-index: 2; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
+.m-env-back { left: 5%; right: 5%; top: 34%; height: 40%; background: #C9A27A; border-radius: 3cqi; }
+.m-env-front { left: 5%; right: 5%; top: 46%; height: 28%; background: #D9B48C; border-radius: 0 0 3cqi 3cqi; clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%); z-index: 6; box-shadow: 0 2cqi 5cqi rgba(43,33,96,.2); }
+.m-zine { left: 9%; top: 13%; width: 26.1%; aspect-ratio: 2.75 / 4.25; background: #7DCECC; border-radius: 1cqi; transform: rotate(-7deg); z-index: 3; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1.6cqi; padding: 3cqi 2cqi; text-align: center; color: var(--ink); }
+.m-zine img { width: 56%; height: auto; }
+.m-zine b { font: 400 2.9cqi/1.15 var(--display); }
+.m-zine span { font: 700 2.4cqi/1 var(--body); border-bottom: .7cqi solid var(--yellow); padding-bottom: .5cqi; }
+.m-photo { right: 6%; top: 16%; width: 57%; aspect-ratio: 3 / 2; background: #fff; padding: 1.4cqi; transform: rotate(5deg); z-index: 2; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
 .m-photo svg { width: 100%; height: 100%; display: block; }
-.m-patch { left: 14%; bottom: 9%; width: 34%; aspect-ratio: 1; border-radius: 50%; background: #FAED23; border: 2.4cqi solid var(--purple); outline: .7cqi dashed rgba(255,255,255,.85); outline-offset: -3.6cqi; padding: 3cqi; transform: rotate(-6deg); z-index: 8; box-shadow: 0 2cqi 4cqi rgba(43,33,96,.3), inset 0 0 0 1cqi #F2E21C; }
-.m-patch img { width: 100%; height: 100%; object-fit: contain; }
-.m-sticker { right: 14%; bottom: 12%; width: 20%; aspect-ratio: 1; border-radius: 50%; background: #fff; padding: 1.6cqi; transform: rotate(12deg); z-index: 8; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.22); }
-.m-sticker img { width: 100%; height: 100%; }
+.m-stk { top: 67%; width: 19%; aspect-ratio: 1; border-radius: 50%; border: 1.3cqi solid #fff; overflow: hidden; z-index: 8; box-shadow: 0 1.5cqi 4cqi rgba(43,33,96,.28); }
+.m-stk img { display: block; width: 100%; height: 100%; }
+.s-croc { left: 12%; background: #FBF3A0; transform: rotate(-8deg); }
+.s-croc img { object-fit: contain; padding: 9%; }
+.s-logo { left: 40.5%; background: #fff; transform: rotate(4deg); }
+.s-logo img { object-fit: contain; padding: 7%; }
+.s-trees { left: 69%; background: #A8DCD9; transform: rotate(10deg); }
+.s-trees img { object-fit: cover; object-position: 50% 42%; }
 .m-label { z-index: 9; font: 700 max(12px, 3cqi)/1 var(--body); background: #fff; color: var(--ink); border: 1px solid var(--line); padding: 1.2cqi 2.2cqi; border-radius: 99px; white-space: nowrap; }
-.l-zine { left: 2%; top: 14%; } .l-photo { right: 4%; top: 12%; } .l-patch { left: 6%; bottom: 1%; } .l-sticker { right: 4%; bottom: 3%; }
-.m-tag { left: 50%; top: 2%; transform: translateX(-50%); z-index: 9; font: 700 2.8cqi/1 var(--body); letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 1.6cqi 2.6cqi; border-radius: 99px; }
+.l-zine { left: 2%; top: 8%; } .l-photo { right: 3%; top: 10%; } .l-stk { left: 50%; bottom: 2%; transform: translateX(-50%); }
+.m-tag { left: 50%; top: 0; transform: translateX(-50%); z-index: 9; font: 700 2.8cqi/1 var(--body); letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 1.6cqi 2.6cqi; border-radius: 99px; }
 .thanks-page { text-align: center; justify-items: center; }
 .thanks-page .cta-row { justify-content: center; }
 
@@ -307,7 +317,7 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
 <section class="hero band">
   <div class="wrap">
     <img class="hero-logo" src="img/logo-trim.webp" alt="Electric Palms logo" width="813" height="749">
-    <div class="hero-copy">
+    <div class="hero-copy hero-full">
       <h1>Electric Palms helps Sarasota celebrate.</h1>
       <p class="lead">We want to pull you off your phone and into the moment. Let us help you Be Here Now.</p>
       <div class="cta-row">
