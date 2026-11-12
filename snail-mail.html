@@ -2,8 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Snail mail · Electric Palms Events</title>
 
 <meta name="description" content="Electric Palms isn't on social media. Join the waitlist for our monthly snail mail of local art, poetry and events.">
-<link rel="canonical" href="https://electricpalmsevents.com/snail-mail.html">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Electric Palms Events"><meta property="og:title" content="Snail mail · Electric Palms Events"><meta property="og:description" content="Electric Palms isn't on social media. Join the waitlist for our monthly snail mail of local art, poetry and events."><meta property="og:url" content="https://electricpalmsevents.com/snail-mail.html"><meta property="og:image" content="https://electricpalmsevents.com/img/share.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://electricpalmsevents.com/snail-mail.html"><link rel="alternate" hreflang="en" href="https://electricpalmsevents.com/snail-mail.html"><link rel="alternate" hreflang="es" href="https://electricpalmsevents.com/es/snail-mail.html"><link rel="alternate" hreflang="pt-BR" href="https://electricpalmsevents.com/pt/snail-mail.html"><link rel="alternate" hreflang="x-default" href="https://electricpalmsevents.com/snail-mail.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Electric Palms Events"><meta property="og:title" content="Snail mail · Electric Palms Events"><meta property="og:description" content="Electric Palms isn't on social media. Join the waitlist for our monthly snail mail of local art, poetry and events."><meta property="og:url" content="https://electricpalmsevents.com/snail-mail.html"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://electricpalmsevents.com/img/share.png"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#EBE9F3">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -12,6 +12,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Krona+One&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
+/* Language switcher: plain text links, current language underlined */
+.lang-switch { display: flex; gap: 4px; align-items: center; font-weight: 600; font-size: .95rem; }
+.lang-switch a { padding: 8px 6px; min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); text-decoration: none; }
+.lang-switch a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.lang-switch abbr { text-decoration: none; }
+.nav ul .menu-lang { display: none; }
+.lang-foot a:first-child { padding-left: 0; }
+@media (max-width: 560px) {
+  .nav .wrap > .lang-switch { display: none; }
+  .nav ul .menu-lang { display: block; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 4px; }
+  .nav ul .menu-lang a { display: inline-flex; padding: 8px 12px; border-radius: 0; }
+  .nav ul .menu-lang a:hover { background: none; }
+}
 /* Snail mail plans: plain columns with a colored rule, no boxes */
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 56px); margin-top: clamp(32px, 5vw, 48px); }
 @media (max-width: 700px) { .plans { grid-template-columns: 1fr; } }
@@ -65,8 +78,10 @@ p { margin: 0; }
 .nav ul a:hover { background: var(--bg2); }
 .nav ul a[aria-current="page"] { background: var(--ink); color: #fff; }
 .nav-toggle { display: none; background: none; border: 2px solid var(--purple); border-radius: 10px; padding: 6px 10px; font: 700 .9rem var(--body); color: var(--purple); }
-@media (max-width: 920px) {
+@media (max-width: 1080px) {
   .nav-toggle { display: block; }
+  .nav .wrap > .lang-switch { margin-left: auto; order: 2; }
+  .nav-toggle { order: 3; }
   .nav ul { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); flex-direction: column; padding: 10px max(16px, env(safe-area-inset-left, 0px)) 16px; gap: 2px; }
   .nav ul.open { display: flex; }
   .nav ul a { display: block; }
@@ -318,7 +333,8 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
   <div class="wrap">
     <a class="brand" href="index.html"><img src="img/logo-simple.webp" alt="" width="42" height="42">Electric Palms Events</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
-    <ul id="menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Services</a></li><li><a href="creatives.html">Call for Creatives</a></li><li><a href="snail-mail.html" aria-current="page">Snail mail</a></li></ul>
+    <ul id="menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Services</a></li><li><a href="creatives.html">Call for Creatives</a></li><li><a href="snail-mail.html" aria-current="page">Snail mail</a></li><li class="menu-lang"><nav class="lang-switch" aria-label="Language / Idioma"><a href="snail-mail.html" hreflang="en" lang="en" aria-current="true"><abbr title="English">EN</abbr></a><a href="es/snail-mail.html" hreflang="es" lang="es"><abbr title="Español">ES</abbr></a><a href="pt/snail-mail.html" hreflang="pt-BR" lang="pt-BR"><abbr title="Português">PT</abbr></a></nav></li></ul>
+    <nav class="lang-switch" aria-label="Language / Idioma"><a href="snail-mail.html" hreflang="en" lang="en" aria-current="true"><abbr title="English">EN</abbr></a><a href="es/snail-mail.html" hreflang="es" lang="es"><abbr title="Español">ES</abbr></a><a href="pt/snail-mail.html" hreflang="pt-BR" lang="pt-BR"><abbr title="Português">PT</abbr></a></nav>
   </div>
 </header>
 <main>
@@ -393,6 +409,7 @@ section.band.sp-hero + section.band, section.band + section.band.sp-next { paddi
   <div class="wrap">
     <a class="brand" href="index.html"><img src="img/logo-simple.webp" alt="" width="42" height="42">Electric Palms Events</a>
     <nav aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Services</a><a href="creatives.html">Call for Creatives</a><a href="snail-mail.html">Snail mail</a></nav>
+    <nav class="lang-switch lang-foot" aria-label="Language / Idioma"><a href="snail-mail.html" hreflang="en" lang="en" aria-current="true"><abbr title="English">EN</abbr></a><a href="es/snail-mail.html" hreflang="es" lang="es"><abbr title="Español">ES</abbr></a><a href="pt/snail-mail.html" hreflang="pt-BR" lang="pt-BR"><abbr title="Português">PT</abbr></a></nav>
     <small><a href="tel:+19414449434">941.444.9434</a> · electricpalmsevents@gmail.com · Sarasota, FL · © 2026</small>
   </div>
   <div class="wrap foot-quote">
