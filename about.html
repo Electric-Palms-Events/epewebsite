@@ -12,6 +12,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Krona+One&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
+/* Snail mail plans: plain columns with a colored rule, no boxes */
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 56px); margin-top: clamp(32px, 5vw, 48px); }
+@media (max-width: 700px) { .plans { grid-template-columns: 1fr; } }
+.plan { border-top: 3px solid var(--accent); padding-top: 18px; }
+.plan h3 { margin: 0 0 6px; }
+.plan .price { font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px; color: var(--ink); }
+.plan .price small { font-family: var(--body); font-size: 1rem; font-weight: 600; color: var(--ink2); }
+.plan p { margin: 0 0 10px; }
+
 /* Layout: calm, polished, phone-first. Warm off-white ground, deep purple type, brand colors only as accents. */
 :root {
   --bg: #EBE9F3; --bg2: #DDDAEB; --ink: #2B2160; --ink2: #5B5486; --line: #D2CCE6; --field: #78719F;
